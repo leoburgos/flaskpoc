@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5001:5000"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+  db:
+    image: postgres:17.4-bullseye
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:

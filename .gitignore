@@ -1,0 +1,13 @@
+# Environment variables (NEVER commit this!)
+.env
+
+# Python
+*./__pycache__/
+*.pyc
+*.so
+env/
+
+# IDE
+.vscode/
+
+

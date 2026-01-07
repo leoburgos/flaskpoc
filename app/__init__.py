@@ -1,11 +1,12 @@
 # app/__init__.py
+import os
 from flask import Flask
 
 def create_app():
     app = Flask(__name__)
 
-    # Configuration
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/flaskpoc'
+    # Configuration from environment variables
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
     # Register blueprints
     from app.routes.main import main_bp
